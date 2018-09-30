@@ -1,4 +1,18 @@
 # quickstart-drupal
+
+## create.sh
+
+I've created a helper script, out of frustration of repeatedly failig to use a clodformation template with lot of parameters.
+
+When you are using the aws console, you get a final error message, but you have to start it over ...
+
+These are the steps by the script:
+- first issues `create-stack` without parameters
+- parses the error message and lists all missing params
+- generates a `.profile` for all params with `export pramx=` with missing values
+- you just have to fill that single `.profile`
+- finally it executes: `aws cloudformation create-stack` with all the parameters substituted from `.profile`
+
 ## Drupal on the AWS Cloud
 
 This Quick Start deploys a highly available Drupal architecture on the Amazon Web Services (AWS) Cloud.
